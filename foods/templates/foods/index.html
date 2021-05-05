@@ -1,0 +1,23 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'foods/style.css' %}">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Cuisines</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
+  </head>
+  <body>
+    <h1>Cuisines</h1>
+    {% if cuisine_list %}
+        <ul>
+        {% for cuisine in cuisine_list %}
+            <li><a href="/polls/{{ cuisine.id }}/">{{ cuisine.cuisine_type }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>You don't have any cuisines!</p>
+    {% endif %}
+  </body>
+</html>
